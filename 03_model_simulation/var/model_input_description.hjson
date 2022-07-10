@@ -1,0 +1,28 @@
+{
+  PERM: # permeability in sands 
+  {
+      generator: uniform
+      min_value: 500
+      max_value: 2500
+  }
+  
+  PORO: # porosity
+  {
+      generator: uniform
+      min_value: 0.1
+      max_value: 0.25
+  }
+  
+  AQ_SIZE: # size of aquifier in reservoir 
+  {
+      generator: uniform
+      min_value: 0.5
+      max_value: 50
+  }
+  
+  CHAN: # channels in the reservoir
+  {
+      generator: discrete
+      choices: ["few", "some", "many"]
+  }
+}
