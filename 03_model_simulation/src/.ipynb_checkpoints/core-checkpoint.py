@@ -2,7 +2,9 @@ import pandas as pd
 import time
 from .types import Uniform, Discrete
 import random
-        
+import sys
+sys.path.append("..") # to import one directory up
+from src.types import Uniform, Discrete
 class Model:
     """Represents a model class
     
@@ -66,6 +68,7 @@ class Model:
 
         model_inputs = []
 
+
         for key, val in self.inputs_template.items():
 
             generator = val["generator"]
@@ -79,10 +82,11 @@ class Model:
 
             elif val["generator"] == "discrete":
                 # TODO: Add Discrete to model_inputs
-                # model_input = Discrete()
-                #model_inputs.append(model_input)
+                choices=val["choices"]
+                model_input = Discrete(variable_name=key, choices=choices)
+                model_inputs.append(model_input)
                 
-        self.inputs = model_inputs
+                self.inputs = model_inputs
         
 class Simulator:
     """Represents a simulator class 
